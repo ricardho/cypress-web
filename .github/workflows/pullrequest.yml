@@ -1,0 +1,27 @@
+name: Exemplo PR Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/login.cy.js
+
+      - name: Upload Cypress Report
+        if: always() # Certifique-se de que o relatório será salvo mesmo se os testes falharem
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report # Nome do artifact
+          path: mochawesome-report # Caminho onde o relatório está salvo
+          retention-days: 3 # Define que o artifact expira em 3 dias
