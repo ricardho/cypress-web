@@ -1,0 +1,15 @@
+{
+  "name": "mentoria-cypress-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^15.16.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0"
+  }
+}
