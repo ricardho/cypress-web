@@ -13,6 +13,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
+          spec: cypress/e2e/login.cy.js
 
       - name: Upload Cypress Report
         if: always() # Certifique-se de que o relatório será salvo mesmo se os testes falharem
